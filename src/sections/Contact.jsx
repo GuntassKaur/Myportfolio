@@ -17,11 +17,24 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus("BROADCASTING...");
-        setTimeout(() => {
+
+        const formDataObj = new FormData(e.target);
+        
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formDataObj).toString(),
+        })
+        .then(() => {
             setStatus("SIGNAL SENT");
             setFormData({ name: "", email: "", message: "" });
             setTimeout(() => setStatus(""), 3000);
-        }, 2000);
+        })
+        .catch((error) => {
+            console.error(error);
+            setStatus("FAILURE: RETRY");
+            setTimeout(() => setStatus(""), 3000);
+        });
     };
 
     return (
@@ -91,13 +104,23 @@ const Contact = () => {
                              <FaLock size={40} className="text-magenta-500" />
                         </div>
 
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-12 relative z-10">
+                        <form 
+                            onSubmit={handleSubmit} 
+                            name="contact" 
+                            method="POST" 
+                            data-netlify="true" 
+                            className="flex flex-col gap-12 relative z-10"
+                        >
+                            {/* Netlify Hidden Form Name */}
+                            <input type="hidden" name="form-name" value="contact" />
+
                             <div className="space-y-6">
                                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400 ml-6 flex items-center gap-3">
                                     <FaTerminal size={10} /> Entity Identification
                                 </label>
                                 <input 
                                     type="text" 
+                                    name="name"
                                     placeholder="Entity Name"
                                     required
                                     value={formData.name}
@@ -111,6 +134,7 @@ const Contact = () => {
                                 </label>
                                 <input 
                                     type="email" 
+                                    name="email"
                                     placeholder="Electronic Encryption Code"
                                     required
                                     value={formData.email}
@@ -124,6 +148,7 @@ const Contact = () => {
                                 </label>
                                 <textarea 
                                     rows="5" 
+                                    name="message"
                                     placeholder="Data Buffer Content..."
                                     required
                                     value={formData.message}
