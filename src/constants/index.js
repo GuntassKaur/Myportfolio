@@ -167,17 +167,6 @@ export const PROJECTS = [
 
 export const EXPERIENCE = [
   {
-    role: "Full Stack Development Intern",
-    company: "Lecxe Engineering",
-    period: "Ongoing",
-    highlights: [
-      "Collaborating on scalable AI-driven web architectures.",
-      "Optimizing frontend performance and backend API responses.",
-      "Lecxe focused engineering role."
-    ],
-    tech: ["React", "FastAPI", "PostgreSQL"]
-  },
-  {
     role: "Industrial Training",
     company: "VMM Java Training",
     period: "Jun 2023 - Aug 2023",
@@ -211,7 +200,7 @@ export const ACHIEVEMENTS = [
 export const EDUCATION = [
   {
     degree: "Bachelor of Technology in CSE",
-    institution: "University Institute of Engineering & Tech",
+    institution: "Global Group of Institutes",
     period: "2023 – 2027",
     highlights: ["9.15 CGPA", "Focused on AI and Distributed Systems"],
   },
