@@ -1,74 +1,45 @@
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
-import { Github, Linkedin, Mail, Download, Rocket, Code2 } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Download, Bot, Terminal, Code } from "lucide-react";
 import { BRAND_CONTENT, HERO_CONTENT } from "../constants";
-import profilePic from "../assets/profile.jpeg";
-import { useEffect, useState } from "react";
 
 const Hero = () => {
-    const [typedText, setTypedText] = useState("");
-    const fullText = HERO_CONTENT.subheading;
-    
-    useEffect(() => {
-        let i = 0;
-        const timer = setInterval(() => {
-            setTypedText(fullText.slice(0, i));
-            i++;
-            if (i > fullText.length) clearInterval(timer);
-        }, 50);
-        return () => clearInterval(timer);
-    }, [fullText]);
-
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
-            {/* Premium Background Elements */}
-            <div className="absolute inset-0 animated-grid opacity-20 z-0" />
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/20 rounded-full blur-[120px] animate-blob z-0" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-[120px] animate-blob animation-delay-2000 z-0" />
+        <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-grid pt-20">
+            {/* Background Orbs */}
+            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-sky-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="container relative z-10 mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+            <div className="container relative z-10">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
+                    
                     {/* Left: Text Content */}
                     <div className="flex-1 text-center lg:text-left">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/50 border border-white/5 mb-8"
                         >
-                            <span className="text-xs font-bold tracking-[0.2em] text-neon-cyan uppercase flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
-                                Available for opportunities
-                            </span>
+                            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                            <span className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Available for Internships</span>
                         </motion.div>
 
-                        <motion.h1
+                        <motion.h1 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-6xl md:text-8xl font-black mb-6 leading-tight"
+                            className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tighter"
                         >
-                            <span className="text-white">HI, I'M</span> <br />
-                            <span className="gradient-text">{BRAND_CONTENT.firstName.toUpperCase()}</span>
+                            {HERO_CONTENT.headline.split(' ').slice(0, -1).join(' ')} <br/>
+                            <span className="gradient-text">{HERO_CONTENT.headline.split(' ').slice(-1)}</span>
                         </motion.h1>
 
-                        <div className="min-h-[60px] mb-8">
-                            <p className="text-xl md:text-2xl text-text-muted font-medium">
-                                {typedText}
-                                <span className="animate-pulse inline-block ml-1 w-1 h-6 bg-neon-cyan" />
-                            </p>
-                        </div>
-
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1, duration: 1 }}
-                            className="text-lg text-text-dim mb-10 max-w-xl"
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="text-lg md:text-xl text-slate-400 font-medium mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed"
                         >
-                            {HERO_CONTENT.powerLine}
+                            {BRAND_CONTENT.subtext}
                         </motion.p>
-
-                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                             <Link to="projects" smooth={true} className="pill-button cursor-pointer">
                                 <Rocket className="w-5 h-5" />
                                 View My Work

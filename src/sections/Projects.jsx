@@ -1,28 +1,28 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight, Play, Cpu, Zap, Globe, MessageSquare, Terminal } from "lucide-react";
+import { ExternalLink, Github, ArrowRight, AppWindow, Play, Cpu, Zap, Globe, Terminal, Award, Star } from "lucide-react";
 import { PROJECTS } from "../constants";
 
 const Projects = () => {
     return (
-        <section id="projects" className="py-24 relative overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-20">
+        <section id="projects" className="section-padding relative overflow-hidden bg-grid">
+            <div className="container relative z-10">
+                <div className="text-center mb-24">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/50 border border-white/5 mb-6"
                     >
-                        <Cpu size={16} className="text-neon-cyan" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-neon-cyan">Engineering Portfolio</span>
+                        <AppWindow size={16} className="text-indigo-400" />
+                        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Featured Systems</span>
                     </motion.div>
-                    <h2 className="section-title">FEATURED SYSTEMS</h2>
-                    <p className="text-xl text-text-muted max-w-2xl mx-auto italic">
-                        "High-performance solutions designed for scalability and impact."
+                    <h2 className="section-title">ENGINEERED PROJECTS</h2>
+                    <p className="text-lg text-slate-400 max-w-2xl mx-auto font-medium">
+                        Building real-world systems at the intersection of AI, Full Stack, and System Design.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     {PROJECTS.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -30,96 +30,89 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="group relative"
+                            className={`group relative ${project.isFeatured ? 'lg:col-span-2' : ''}`}
                         >
-                            <div className="glass-card h-full rounded-[2.5rem] overflow-hidden flex flex-col hover:-translate-y-4 transition-all duration-500 border-white/5">
-                                {/* Project Image with Overlay */}
-                                <div className="relative h-64 overflow-hidden">
+                            <div className={`glass-card h-full flex flex-col ${project.isFeatured ? 'lg:flex-row' : ''} overflow-hidden`}>
+                                {/* Image Container */}
+                                <div className={`${project.isFeatured ? 'lg:w-1/2' : 'h-64'} relative overflow-hidden`}>
                                     <img 
                                         src={project.image} 
                                         alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/20 to-transparent opacity-80" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1F] via-transparent to-transparent opacity-60" />
                                     
-                                    {/* Tech Pills Overlay */}
-                                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                                        {project.tech.slice(0, 2).map((tech) => (
-                                            <span key={tech} className="px-3 py-1 rounded-lg bg-bg-dark/80 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-tighter">
-                                                {tech}
+                                    {/* Project Badges */}
+                                    <div className="absolute top-6 left-6 flex flex-wrap gap-3">
+                                        {project.isFeatured && (
+                                            <span className="px-4 py-1.5 rounded-full bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest shadow-lg flex items-center gap-2">
+                                                <Star size={12} /> Featured Project
                                             </span>
+                                        )}
+                                        {project.isRunnerUp && (
+                                            <span className="px-4 py-1.5 rounded-full bg-emerald-600 text-white text-[10px] font-black uppercase tracking-widest shadow-lg flex items-center gap-2">
+                                                <Award size={12} /> Runner-Up
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* Content Container */}
+                                <div className={`p-10 flex-1 flex flex-col ${project.isFeatured ? 'lg:p-12' : ''}`}>
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {project.tech.map((t, i) => (
+                                            <span key={i} className="tech-badge">{t}</span>
                                         ))}
                                     </div>
 
-                                    {/* Hover Icons */}
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                            <a 
-                                                href={project.links.github} 
-                                                target="_blank" 
-                                                rel="noreferrer"
-                                                className="w-12 h-12 rounded-full bg-white text-bg-dark flex items-center justify-center hover:bg-neon-cyan transition-colors"
-                                            >
-                                                <Github size={20} />
-                                            </a>
-                                            {project.links.demo !== "#" && (
-                                                <a 
-                                                    href={project.links.demo} 
-                                                    target="_blank" 
-                                                    rel="noreferrer"
-                                                    className="w-12 h-12 rounded-full bg-neon-purple text-white flex items-center justify-center hover:bg-neon-pink transition-colors"
-                                                >
-                                                    <ExternalLink size={20} />
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Project Info */}
-                                <div className="p-8 flex-1 flex flex-col">
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <Terminal size={14} className="text-neon-cyan" />
-                                        <span className="text-[10px] font-black text-text-dim uppercase tracking-[0.2em]">{project.subtitle}</span>
-                                    </div>
-                                    
-                                    <h3 className="text-2xl font-black text-white mb-4 group-hover:text-neon-cyan transition-colors">
+                                    <h3 className={`font-black text-white mb-6 tracking-tight ${project.isFeatured ? 'text-4xl' : 'text-2xl'}`}>
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-text-muted text-sm leading-relaxed mb-6 line-clamp-3">
-                                        {project.solution}
-                                    </p>
+                                    <ul className="space-y-4 mb-10 flex-1">
+                                        {project.bullets.map((bullet, i) => (
+                                            <li key={i} className="flex gap-4 text-sm text-slate-400 font-medium leading-relaxed">
+                                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                                                {bullet}
+                                            </li>
+                                        ))}
+                                    </ul>
 
-                                    <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
-                                        <div className="flex -space-x-2">
-                                            {project.tech.map((t, i) => (
-                                                <div key={i} className="w-8 h-8 rounded-full bg-bg-dark border border-white/10 flex items-center justify-center text-[10px] text-white font-bold uppercase">
-                                                    {t[0]}
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <div className="flex items-center gap-2 text-neon-cyan text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all">
-                                            Case Study <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                                        </div>
+                                    <div className="flex items-center gap-4 mt-auto">
+                                        <a 
+                                            href={project.links.github} 
+                                            target="_blank" 
+                                            rel="noreferrer"
+                                            className="pill-button !py-3 !px-6"
+                                        >
+                                            <Github size={16} /> GitHub
+                                        </a>
+                                        {project.links.demo !== "#" && (
+                                            <a 
+                                                href={project.links.demo} 
+                                                target="_blank" 
+                                                rel="noreferrer"
+                                                className="pill-button-outline !py-3 !px-6"
+                                            >
+                                                <Globe size={16} /> Live Demo
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
-                            
-                            {/* Background Glow */}
-                            <div className="absolute -inset-2 bg-gradient-to-r from-neon-purple to-neon-cyan rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 -z-10" />
                         </motion.div>
                     ))}
                 </div>
 
                 <div className="mt-24 text-center">
+                    <p className="text-slate-500 text-sm font-bold uppercase tracking-[0.4em] mb-10">System Architecture & Code Excellence</p>
                     <a 
                         href="https://github.com/GuntassKaur" 
                         target="_blank" 
                         rel="noreferrer"
                         className="pill-button-outline inline-flex"
                     >
-                        View More Systems <ArrowRight size={18} className="ml-2" />
+                        Explore More Repositories <ArrowRight size={18} />
                     </a>
                 </div>
             </div>
@@ -128,4 +121,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
 s;

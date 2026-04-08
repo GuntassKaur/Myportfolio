@@ -2,11 +2,13 @@ export const BRAND_CONTENT = {
   firstName: "Guntass",
   lastName: "Kaur",
   fullName: "Guntass Kaur",
-  roles: ["Aspiring Software Engineer", "AI & Intelligent Systems Developer"],
-  tagline: "I design and build intelligent systems that solve real-world problems — not just projects.",
+  roles: ["Full Stack Developer", "AI & NLP Systems Engineer"],
+  tagline: "Building AI-driven scalable systems",
+  subtext: "AI | Full Stack | Intelligent Systems",
   email: "kaurguntass2508@gmail.com",
   github: "https://github.com/GuntassKaur",
   linkedin: "https://www.linkedin.com/in/guntass-kaur-08a360352",
+  resumeUrl: "#",
 };
 
 export const NAV_LINKS = [
@@ -19,13 +21,12 @@ export const NAV_LINKS = [
 ];
 
 export const HERO_CONTENT = {
-  powerLine: "I design and build intelligent systems that solve real-world problems — not just projects.",
-  subheading: "Aspiring Software Engineer | AI & Intelligent Systems Developer",
+  headline: "Building AI-driven scalable systems",
+  subheading: "AI | Full Stack | Intelligent Systems",
 };
 
 export const ABOUT_CONTENT = {
-  text: "I am a highly driven B.Tech Computer Science student with a focus on building systems that combine intelligence, scalability, and usability. My approach to engineering is grounded in problem-solving and systems thinking, moving beyond mere code completion to create meaningful real-world impact.",
-  philosophy: "I focus on building systems that combine intelligence, scalability, and usability — not just completing projects.",
+  text: "I am a B.Tech Computer Science student (CGPA: 9.15) focused on building AI-driven scalable systems. I work at the intersection of Full Stack Development, AI & NLP Systems, and System Design & Distributed Systems. I believe in building real-world systems, not just projects.",
   academicHighlights: [
     { label: "B.Tech CSE", value: "9.15 CGPA", period: "2023–2027" },
     { label: "Class XII", value: "80%", institution: "Modern High School" },
@@ -35,119 +36,153 @@ export const ABOUT_CONTENT = {
 
 export const SKILLS = [
   {
-    category: "Languages",
-    items: [
-      { name: "Java", icon: "Coffee" },
-      { name: "Python", icon: "Code2" },
-      { name: "C/C++", icon: "Cpu" },
-      { name: "JavaScript", icon: "Flame" }
-    ],
-  },
-  {
     category: "Frontend",
     items: [
-      { name: "React", icon: "Zap" },
-      { name: "Tailwind CSS", icon: "Palette" },
-      { name: "Framer Motion", icon: "Move" },
-      { name: "Three.js", icon: "Box" }
+      { name: "HTML", icon: "Layout" },
+      { name: "CSS", icon: "Palette" },
+      { name: "JavaScript", icon: "Code2" },
+      { name: "React.js", icon: "Zap" },
+      { name: "Next.js", icon: "Rocket" }
     ],
   },
   {
     category: "Backend",
     items: [
       { name: "Node.js", icon: "Server" },
-      { name: "Express", icon: "Settings" },
-      { name: "MySQL", icon: "Database" },
-      { name: "MongoDB", icon: "Database" }
+      { name: "Express.js", icon: "Settings" },
+      { name: "FastAPI", icon: "Zap" }
     ],
   },
   {
-    category: "AI / IoT",
+    category: "AI/ML",
     items: [
       { name: "NLP", icon: "Brain" },
-      { name: "Computer Vision", icon: "Eye" },
-      { name: "Arduino / Sensors", icon: "CircuitBoard" },
-      { name: "5G Networking", icon: "Wifi" }
+      { name: "AI Agents (LangGraph)", icon: "Bot" },
+      { name: "Semantic Analysis", icon: "Search" }
+    ],
+  },
+  {
+    category: "Databases",
+    items: [
+      { name: "PostgreSQL", icon: "Database" },
+      { name: "MongoDB", icon: "Database" },
+      { name: "MySQL", icon: "Database" }
+    ],
+  },
+  {
+    category: "Cloud & Tools",
+    items: [
+      { name: "AWS", icon: "Cloud" },
+      { name: "GCP", icon: "Cloud" },
+      { name: "Oracle Cloud", icon: "Cloud" },
+      { name: "Docker", icon: "Box" },
+      { name: "GitHub CI/CD", icon: "GitBranch" },
+      { name: "Playwright", icon: "TestTube" }
     ],
   },
 ];
 
 export const PROJECTS = [
   {
-    id: "verimind",
-    title: "VeriMind",
-    subtitle: "AI Content Verification Platform",
-    problem: "Rising misinformation and AI-generated text lacking source transparency.",
-    solution: "Developed an AI-powered platform for real-time content verification and confidence scoring using advanced NLP.",
-    impact: "Provides a reliable trust-layer for digital consumption, reducing the reach of hallucinations and fake content.",
-    tech: ["Python", "Flask", "NLP", "React"],
+    id: "jeevanet",
+    title: "JEEVANET — Autonomous 5G Emergency Intelligence Network",
+    isFeatured: true,
+    tech: ["Go", "MQTT", "AI", "Edge Computing", "Distributed Systems"],
+    bullets: [
+      "AI-based emergency response system using real-time predictive analytics",
+      "Dynamically generates 'Green Corridors' for ambulances",
+      "Event-driven architecture using Go + MQTT",
+      "Explores V2X communication and edge intelligence",
+      "Designed as scalable smart city infrastructure"
+    ],
+    links: { demo: "#", github: "https://github.com/GuntassKaur/JEEVANET-Autonomous-5G-Powered-Emergency-Intelligence-Network-" },
+    image: "https://images.unsplash.com/photo-1576091160550-2173bdd9962a?auto=format&fit=crop&q=80&w=2670",
+  },
+  {
+    id: "ai-automation",
+    title: "AI Business Automation System (Ongoing)",
+    tech: ["FastAPI", "PostgreSQL", "LangGraph", "AI Agents"],
+    bullets: [
+      "AI agent-based automation system",
+      "Automates workflows and business decisions",
+      "Scalable backend architecture using APIs",
+      "Focused on real-world automation"
+    ],
     links: { demo: "#", github: "https://github.com/GuntassKaur" },
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2664",
   },
   {
     id: "confera-ai",
-    title: "ConferaAI",
-    subtitle: "AI-Powered Video Conferencing",
-    problem: "Meeting fatigue and the difficulty of tracking actionable insights from long video calls.",
-    solution: "Built a WebRTC-based video platform with integrated OpenAI for real-time summaries and task extraction.",
-    impact: "Improves team productivity by automating meeting documentation and highlight generation.",
-    tech: ["React", "Node.js", "WebRTC", "OpenAI"],
-    links: { demo: "https://confera-ai-video-conferencing-gk.vercel.app", github: "https://github.com/GuntassKaur" },
+    title: "CONFERA AI",
+    tech: ["React.js", "Node.js", "WebRTC", "OpenAI API"],
+    bullets: [
+      "AI-powered video conferencing platform",
+      "Smart Recall (summaries + key points)",
+      "Live transcription and speaker tracking",
+      "Real-time communication system"
+    ],
+    links: { demo: "https://confera-ai-video-conferencing.vercel.app", github: "https://github.com/GuntassKaur" },
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
   },
   {
-    id: "jeevanet",
-    title: "JeevaNet",
-    subtitle: "Autonomous Emergency Network",
-    problem: "Traditional emergency response systems suffer from latency and lack of real-time intelligence in disaster zones.",
-    solution: "Created an autonomous 5G-powered intelligence network for emergency services with ER tele-surgery capabilities.",
-    impact: "Enables critical life-saving coordination in environments where traditional communication infrastructure fails.",
-    tech: ["Autonomous Systems", "5G", "IoT", "React"],
-    links: { demo: "#", github: "https://github.com/GuntassKaur/JEEVANET-Autonomous-5G-Powered-Emergency-Intelligence-Network-" },
-    image: "https://images.unsplash.com/photo-1576091160550-2173bdd9962a?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    id: "shifra",
-    title: "Shifra",
-    subtitle: "AI Assistant Robot",
-    problem: "Limited human-machine interaction in accessible, low-cost domestic automation.",
-    solution: "Designed and built an AI assistant robot using Arduino and Python for speech interaction and environmental awareness.",
-    impact: "Award-winning proof-of-concept for affordable, intelligent home assistance systems.",
-    tech: ["Arduino", "Python", "Sensors", "C++"],
-    links: { demo: "#", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2670",
+    id: "verimind",
+    title: "VERIMIND (Intelligent Suite)",
+    tech: ["Python", "Flask", "NLP"],
+    bullets: [
+      "Detects AI-generated content",
+      "Uses semantic analysis and scoring",
+      "Focused on hallucination detection",
+      "Improves AI reliability"
+    ],
+    links: { demo: "https://verimind-intelligent-suite-np75.vercel.app", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1620712943543-bcc45c553385?auto=format&fit=crop&q=80&w=2670",
   },
   {
     id: "swift-miles",
-    title: "Swift Miles",
-    subtitle: "Java Cab Booking System",
-    problem: "Efficiency and security gaps in localized transportation management systems.",
-    solution: "A high-performance Java desktop application with OTP verification and optimized JDBC database management.",
-    impact: "Streamlined booking workflows and enhanced data security for small-to-medium scale operations.",
+    title: "SWIFT MILES — Cab Booking System",
     tech: ["Java", "Swing", "JDBC", "MySQL"],
+    bullets: [
+      "Cab booking system with admin/user modules",
+      "OTP authentication and validation",
+      "Optimized database queries"
+    ],
     links: { demo: "#", github: "https://github.com/GuntassKaur" },
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=2670",
+  },
+  {
+    id: "shifra",
+    title: "SHIFRA ROBOT",
+    isRunnerUp: true,
+    tech: ["Arduino", "Python", "Sensors"],
+    bullets: [
+      "Voice-controlled AI robot",
+      "Obstacle detection using sensors",
+      "Real-time interaction system",
+      "Runner-Up project in technical competition"
+    ],
+    links: { demo: "#", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2670",
   },
 ];
 
 export const EXPERIENCE = [
   {
-    role: "Web Development Intern",
-    company: "InternPe",
-    period: "Mar 2024 - Apr 2024",
+    role: "Full Stack Development Intern",
+    company: "Lecxe Engineering",
+    period: "Ongoing",
     highlights: [
-      "Built responsive UI components using React and styled them with precision.",
-      "Optimized site performance, improving load times by 20%.",
-      "Collaborated with developers to integrate RESTful APIs into frontend views."
+      "Collaborating on scalable AI-driven web architectures.",
+      "Optimizing frontend performance and backend API responses.",
+      "Lecxe focused engineering role."
     ],
-    tech: ["React", "JavaScript", "REST APIs"]
+    tech: ["React", "FastAPI", "PostgreSQL"]
   },
   {
     role: "Industrial Training",
     company: "VMM Java Training",
     period: "Jun 2023 - Aug 2023",
     highlights: [
-      "Mastered Core and Advanced Java with a focus on multithreading and database connectivity.",
+      "Mastered Core and Advanced Java with multithreading and database connectivity.",
       "Developed Swift Miles desktop application using Swing and JDBC.",
       "Implemented secure authentication and optimized SQL queries."
     ],
@@ -157,27 +192,18 @@ export const EXPERIENCE = [
 
 export const ACHIEVEMENTS = [
   { 
-    title: "Runner-Up – Shifra Robot", 
-    desc: "Achieved 2nd place at the Udaan Fest for the Shifra robotic assistant project.", 
+    title: "Runner-Up – Udaan Fest", 
+    desc: "Achieved 2nd place for the Shifra AI Assistant Robot project.", 
     icon: "Trophy",
-    color: "#6C5DD3"
   },
   { 
-    title: "Research Paper Publication", 
-    desc: "Published research on Wireless Sensor Networks and intelligent automation.", 
+    title: "9.15 CGPA", 
+    desc: "Academic excellence in B.Tech Computer Science.", 
+    icon: "Star",
+  },
+  { 
+    title: "Research Paper", 
+    desc: "Ongoing publications in WSN and Intelligent Systems.", 
     icon: "FileText",
-    color: "#3CD7FF"
-  },
-  { 
-    title: "Hackathon Excellence", 
-    desc: "Participated and ranked in Myntra and Tata technical hackathons.", 
-    icon: "Rocket",
-    color: "#FFD700"
-  },
-  { 
-    title: "Class Representative", 
-    desc: "Elected to lead and represent 60+ students, bridging communication with faculty.", 
-    icon: "Users",
-    color: "#6C5DD3"
   },
 ];
