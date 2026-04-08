@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Mail, Code, Terminal, Cpu } from "lucide-react";
+import { ArrowRight, Mail, Code, Terminal, Cpu } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { BRAND_CONTENT, HERO_CONTENT } from "../constants";
 import profilePic from "../assets/profile.jpeg";

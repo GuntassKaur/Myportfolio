@@ -95,7 +95,7 @@ export const PROJECTS = [
       "Explores V2X communication and edge intelligence",
       "Designed as scalable smart city infrastructure"
     ],
-    links: { demo: "#", github: "https://github.com/GuntassKaur/JEEVANET-Autonomous-5G-Powered-Emergency-Intelligence-Network-" },
+    links: { demo: "#", github: "https://github.com/GuntassKaur/JEEVANET-Autonomous-5G-Powered-Emergency-Intelligence-Network" },
     image: "https://images.unsplash.com/photo-1576091160550-2173bdd9962a?auto=format&fit=crop&q=80&w=2670",
   },
   {
@@ -135,7 +135,7 @@ export const PROJECTS = [
       "Improves AI reliability"
     ],
     links: { demo: "https://verimind-intelligent-suite-np75.vercel.app", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1620712943543-bcc45c553385?auto=format&fit=crop&q=80&w=2670",
+    image: "https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&q=80&w=2670",
   },
   {
     id: "swift-miles",
@@ -220,28 +220,35 @@ export const EDUCATION = [
 
 export const CERTIFICATIONS = [
   {
-    name: "OCI 2024 Foundations Associate",
-    issuer: "Oracle Cloud Infrastructure",
-    year: "2024",
+    name: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "Forage",
+    year: "Jan 2026",
+    type: "AI",
+    desc: "Gained hands-on experience in Exploratory Data Analysis, Generative AI applications, and data-driven problem solving.",
+    link: "#",
   },
   {
-    name: "Introduction to Generative AI",
-    issuer: "Google Cloud",
-    year: "2024",
+    name: "Java & ChatGPT for Web Development",
+    issuer: "Udemy",
+    year: "Jan 2026",
+    type: "Code",
+    desc: "Developed skills in Java programming and integrating AI tools like ChatGPT into web workflows.",
+    link: "#"
   },
   {
-    name: "AWS Cloud Explorer",
-    issuer: "Amazon Web Services",
-    year: "2023",
+    name: "Gemini Certified Student",
+    issuer: "Google",
+    year: "Oct 2025 – Oct 2028",
+    type: "AI",
+    desc: "Acquired knowledge in Generative AI, Prompt Engineering, and modern AI tools.",
+    link: "#"
   },
   {
-    name: "Cybersecurity Essentials",
-    issuer: "Cisco Networking Academy",
-    year: "2023",
-  },
-  {
-    name: "GCP Foundations",
-    issuer: "Google Cloud Platform",
-    year: "2023",
+    name: "Oracle Cloud Infrastructure 2025 AI Foundations Associate",
+    issuer: "Oracle",
+    year: "Sep 2025 – Sep 2027",
+    type: "Cloud",
+    desc: "Built foundational understanding of AI concepts and cloud infrastructure on OCI.",
+    link: "#"
   },
 ];
