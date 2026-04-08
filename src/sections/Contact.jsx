@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Send, ArrowUpRight, MessageSquare, Globe, MapPin } from "lucide-react";
+import { Mail, Send, ArrowUpRight, MessageSquare, Globe, MapPin } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { BRAND_CONTENT } from "../constants";
 
 const Contact = () => {
@@ -47,7 +48,7 @@ const Contact = () => {
                                     className="flex items-center gap-6 p-6 glass-card border-white/5 hover:border-sky-500/30 group transition-all"
                                 >
                                     <div className="w-14 h-14 rounded-2xl bg-sky-600/10 flex items-center justify-center text-sky-400 group-hover:bg-sky-600 group-hover:text-white transition-all">
-                                        <Linkedin size={24} />
+                                        <FaLinkedin size={24} />
                                     </div>
                                     <div className="flex-1">
                                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">LinkedIn</p>
@@ -63,7 +64,7 @@ const Contact = () => {
                                     className="flex items-center gap-6 p-6 glass-card border-white/5 hover:border-slate-400/30 group transition-all"
                                 >
                                     <div className="w-14 h-14 rounded-2xl bg-slate-600/10 flex items-center justify-center text-slate-400 group-hover:bg-slate-600 group-hover:text-white transition-all">
-                                        <Github size={24} />
+                                        <FaGithub size={24} />
                                     </div>
                                     <div className="flex-1">
                                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">GitHub</p>

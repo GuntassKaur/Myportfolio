@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight, AppWindow, Play, Cpu, Zap, Globe, Terminal, Award, Star } from "lucide-react";
+import { ExternalLink, ArrowRight, AppWindow, Play, Cpu, Zap, Globe, Terminal, Award, Star } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { PROJECTS } from "../constants";
 
 const Projects = () => {
@@ -85,7 +86,7 @@ const Projects = () => {
                                             rel="noreferrer"
                                             className="pill-button !py-3 !px-6"
                                         >
-                                            <Github size={16} /> GitHub
+                                            <FaGithub size={16} /> GitHub
                                         </a>
                                         {project.links.demo !== "#" && (
                                             <a 
@@ -121,5 +122,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-s;

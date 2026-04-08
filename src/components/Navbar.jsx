@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { BRAND_CONTENT, NAV_LINKS } from "../constants";
 
 const Navbar = () => {
@@ -49,7 +50,7 @@ const Navbar = () => {
                 {/* Right Actions */}
                 <div className="hidden lg:flex items-center gap-6">
                     <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-110">
-                        <Github size={20} />
+                        <FaGithub size={20} />
                     </a>
                     <Link to="contact" smooth={true} className="pill-button !py-2.5 !px-6 !text-[9px]">
                         Hire Me <ExternalLink size={14} />

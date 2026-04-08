@@ -207,3 +207,52 @@ export const ACHIEVEMENTS = [
     icon: "FileText",
   },
 ];
+
+export const EDUCATION = [
+  {
+    degree: "Bachelor of Technology in CSE",
+    institution: "University Institute of Engineering & Tech",
+    period: "2023 – 2027",
+    highlights: ["9.15 CGPA", "Focused on AI and Distributed Systems"],
+  },
+  {
+    degree: "Class XII (CBSE)",
+    institution: "Modern High School",
+    period: "2022",
+    highlights: ["80.0%", "Physics, Chemistry, Mathematics"],
+  },
+  {
+    degree: "Class X (CBSE)",
+    institution: "Modern High School",
+    period: "2020",
+    highlights: ["95.0%", "Academic Distinction"],
+  },
+];
+
+export const CERTIFICATIONS = [
+  {
+    name: "OCI 2024 Foundations Associate",
+    issuer: "Oracle Cloud Infrastructure",
+    year: "2024",
+  },
+  {
+    name: "Introduction to Generative AI",
+    issuer: "Google Cloud",
+    year: "2024",
+  },
+  {
+    name: "AWS Cloud Explorer",
+    issuer: "Amazon Web Services",
+    year: "2023",
+  },
+  {
+    name: "Cybersecurity Essentials",
+    issuer: "Cisco Networking Academy",
+    year: "2023",
+  },
+  {
+    name: "GCP Foundations",
+    issuer: "Google Cloud Platform",
+    year: "2023",
+  },
+];

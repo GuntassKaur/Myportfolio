@@ -1,5 +1,6 @@
 import { BRAND_CONTENT } from "../constants";
-import { Github, Linkedin, Mail, Heart, ArrowUpRight } from "lucide-react";
+import { Mail, Heart, ArrowUpRight } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -35,10 +36,10 @@ const Footer = () => {
                     {/* Right: Quick Links */}
                     <div className="flex items-center gap-8">
                         <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-all transform hover:scale-110">
-                            <Github size={20} />
+                            <FaGithub size={20} />
                         </a>
                         <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-all transform hover:scale-110">
-                            <Linkedin size={20} />
+                            <FaLinkedin size={20} />
                         </a>
                         <a href={`mailto:${BRAND_CONTENT.email}`} className="text-slate-500 hover:text-white transition-all transform hover:scale-110">
                             <Mail size={20} />
@@ -54,5 +55,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
