@@ -29,7 +29,7 @@ const Footer = () => {
                             Built with precision <Heart size={10} className="text-rose-500 animate-pulse" /> by Guntass Kaur
                         </div>
                         <p className="text-[9px] font-bold text-slate-600 uppercase tracking-widest">
-                            &copy; 2026 Code & Systems Portfolio
+                            &copy; 2026 Guntass Kaur
                         </p>
                     </div>
 

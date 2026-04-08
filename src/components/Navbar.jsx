@@ -53,7 +53,7 @@ const Navbar = () => {
                         <FaGithub size={20} />
                     </a>
                     <Link to="contact" smooth={true} className="pill-button !py-2.5 !px-6 !text-[9px]">
-                        Hire Me <ExternalLink size={14} />
+                        Contact Me <ExternalLink size={14} />
                     </Link>
                 </div>
 

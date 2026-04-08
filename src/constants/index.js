@@ -191,8 +191,8 @@ export const ACHIEVEMENTS = [
     icon: "Star",
   },
   { 
-    title: "Research Paper", 
-    desc: "Ongoing publications in WSN and Intelligent Systems.", 
+    title: "Review Paper", 
+    desc: "Presented paper in international conference at Global Group of Institutes on Wireless Sensor Network.", 
     icon: "FileText",
   },
 ];
