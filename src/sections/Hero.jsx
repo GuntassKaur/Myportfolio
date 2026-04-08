@@ -67,7 +67,7 @@ const Hero = () => {
                              </div>
                              <div className="w-px h-10 bg-slate-800 hidden sm:block" />
                              <div className="flex flex-col items-center lg:items-start">
-                                <span className="text-xl md:text-2xl font-black text-white">IIT/D</span>
+                                <span className="text-xl md:text-2xl font-black text-white">Full Stack</span>
                                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Focused</span>
                              </div>
                              <div className="w-px h-10 bg-slate-800 hidden sm:block" />

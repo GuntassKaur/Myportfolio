@@ -92,7 +92,7 @@ const Contact = () => {
                             <div className="space-y-6 mb-12">
                                 <div className="flex items-center gap-4 text-slate-400">
                                     <MapPin size={18} className="text-indigo-400" />
-                                    <span className="text-sm font-bold">IIT Delhi / Chandigarh Region</span>
+                                    <span className="text-sm font-bold">Amritsar / Chandigarh Region</span>
                                 </div>
                                 <div className="flex items-center gap-4 text-slate-400">
                                     <Globe size={18} className="text-indigo-400" />
