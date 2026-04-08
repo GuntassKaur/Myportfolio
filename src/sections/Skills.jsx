@@ -1,82 +1,74 @@
 import { motion } from "framer-motion";
+import * as Icons from "lucide-react";
 import { SKILLS } from "../constants";
-import { FaCode, FaServer, FaTerminal, FaMicrochip, FaBolt, FaGears, FaCloud, FaShield } from "react-icons/fa6";
 
-const Icons = [FaTerminal, FaCode, FaServer, FaMicrochip];
+const SkillCard = ({ category, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay }}
+        className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-white/10"
+    >
+        <h3 className="text-xl font-black text-white mb-8 flex items-center gap-3 text-left">
+            <span className="w-1.5 h-6 bg-gradient-to-b from-neon-purple to-neon-cyan rounded-full" />
+            {category.category}
+        </h3>
+        
+        <div className="grid grid-cols-2 gap-4">
+            {category.items.map((skill, sIdx) => {
+                const IconComponent = Icons[skill.icon] || Icons.Code2;
+                return (
+                    <motion.div
+                        key={sIdx}
+                        whileHover={{ scale: 1.05, rotate: 2 }}
+                        className="group relative p-4 rounded-2xl bg-white/5 border border-white/5 flex flex-col items-center gap-3 hover:bg-white/10 transition-all duration-300"
+                    >
+                        <div className="text-text-muted group-hover:text-neon-cyan transition-colors">
+                            <IconComponent size={24} />
+                        </div>
+                        <span className="text-[10px] font-bold text-text-dim group-hover:text-white uppercase tracking-wider text-center">
+                            {skill.name}
+                        </span>
+                        
+                        {/* Skill Glow */}
+                        <div className="absolute inset-0 bg-neon-cyan/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+                    </motion.div>
+                );
+            })}
+        </div>
+    </motion.div>
+);
 
 const Skills = () => {
     return (
-        <section id="skills" className="py-40 relative overflow-hidden bg-[#0A0F1F]">
-            <div className="container relative z-10 px-6">
-                
-                {/* Immersive Header */}
-                <div className="flex flex-col items-center text-center mb-32 font-heading">
+        <section id="skills" className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="text-center mb-16">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass border border-cyan-500/30 text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em] mb-10 shadow-[0_0_20px_rgba(60,215,255,0.2)]"
-                    >
-                        <FaBolt className="animate-pulse" /> Arsenal Intelligence
-                    </motion.div>
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-6xl md:text-8xl font-black mb-10 text-white tracking-tighter"
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-neon-pink/10 border border-neon-pink/20 mb-6"
                     >
-                        Tech <span className="text-magenta-500">Nexus.</span>
-                    </motion.h2>
-                    <p className="text-[#A0AEC0] text-xl font-light max-w-3xl leading-relaxed italic border-x border-white/5 px-20">
-                        Synthesizing high-concurrency systems and intelligent automation through state-of-the-art engineering modules.
-                    </p>
+                        <Icons.Zap size={16} className="text-neon-pink" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-neon-pink">Technical Stack</span>
+                    </motion.div>
+                    <h2 className="section-title">CORE CAPABILITIES</h2>
                 </div>
 
-                {/* Cyber-Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    {SKILLS.map((skillGroup, index) => {
-                        const IconComponent = Icons[index] || FaCode;
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: index * 0.1 }}
-                                className="group p-12 glass-card border-white/10 hover:border-purple-500/40 transition-all duration-700 rounded-[56px] relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent flex flex-col items-start"
-                            >
-                                {/* Immersive Ambient Glow */}
-                                <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-purple-600/5 blur-[80px] group-hover:bg-purple-600/10 transition-opacity" />
-                                
-                                <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-cyan-400 mb-12 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border border-white/10 group-hover:border-purple-500/60 group-hover:shadow-[0_0_40px_rgba(108,93,211,0.5)]">
-                                    <IconComponent size={32} />
-                                </div>
-
-                                <h3 className="text-2xl font-black text-white mb-12 uppercase tracking-widest">{skillGroup.category}</h3>
-                                
-                                <div className="space-y-10 w-full">
-                                    {skillGroup.items.map((skill, i) => (
-                                        <div key={i} className="space-y-4">
-                                            <div className="flex justify-between items-center px-2">
-                                                <span className="text-white/60 text-[10px] font-black uppercase tracking-[0.2em] group-hover:text-white transition-colors">{skill.name}</span>
-                                                <span className="text-magenta-500 text-[10px] font-black shadow-[0_0_10px_rgba(255,58,205,0.3)]">{skill.proficiency}%</span>
-                                            </div>
-                                            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
-                                                <motion.div 
-                                                    initial={{ width: 0 }}
-                                                    whileInView={{ width: `${skill.proficiency}%` }}
-                                                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                                                    className="h-full bg-gradient-to-r from-purple-500 via-magenta-500 to-cyan-400 rounded-full shadow-[0_0_20px_#FF3ACD]"
-                                                />
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        );
-                    })}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {SKILLS.map((category, idx) => (
+                        <SkillCard key={idx} category={category} delay={idx * 0.1} />
+                    ))}
                 </div>
             </div>
+            
+            {/* Background decorative elements */}
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-neon-pink/10 blur-[100px] rounded-full pointer-events-none" />
         </section>
     );
 };
 
 export default Skills;
+

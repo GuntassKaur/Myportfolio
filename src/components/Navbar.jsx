@@ -1,147 +1,92 @@
-import { motion } from "framer-motion";
-import { Link } from "react-scroll";
-import { BRAND_CONTENT, NAV_LINKS } from "../constants";
-import { FaGithub, FaLinkedin, FaBars, FaXmark } from "react-icons/fa6";
 import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Github, Linkedin, Mail, Hexagon } from "lucide-react";
+import { BRAND_CONTENT, NAV_LINKS } from "../constants";
 
 const Navbar = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState("home");
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-            
-            // Auto-track active section scroll position
-            const sections = NAV_LINKS.map(link => link.href.replace('#', ''));
-            const scrollPos = window.scrollY + 100;
-            
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element && scrollPos >= element.offsetTop && scrollPos < element.offsetTop + element.offsetHeight) {
-                    setActiveSection(section);
-                }
-            }
-        };
-
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <nav 
-            className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 py-6 ${
-                scrolled 
-                ? "bg-[#0A0F1F]/80 backdrop-blur-2xl border-b border-white/5 py-4 shadow-2xl" 
-                : "bg-transparent"
-            }`}
-        >
-            <div className="container flex items-center justify-between px-6">
-                
-                {/* Brand Identity */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="flex items-center gap-3 group cursor-pointer"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-magenta-500 flex items-center justify-center font-black text-xl text-white transition-transform duration-500 group-hover:scale-110 shadow-[0_0_20px_rgba(108,93,211,0.5)]">
-                        {BRAND_CONTENT.firstName[0]}
+        <header className="fixed top-0 left-0 right-0 z-[100] px-6 py-6 md:py-8 pointer-events-none">
+            <div className="container mx-auto flex items-center justify-between">
+                {/* Logo - Always visible */}
+                <Link to="home" smooth={true} className="cursor-pointer group flex items-center gap-2 pointer-events-auto">
+                    <div className="relative w-10 h-10 flex items-center justify-center">
+                        <Hexagon className="absolute inset-0 text-neon-cyan fill-neon-cyan/10 group-hover:rotate-90 transition-transform duration-500" size={40} />
+                        <span className="relative z-10 font-black text-white text-lg">G</span>
                     </div>
-                    <span className="text-xl font-black tracking-tighter text-white uppercase hidden sm:block">
-                        {BRAND_CONTENT.firstName} <span className="text-cyan-400">{BRAND_CONTENT.lastName}</span>
-                    </span>
-                </motion.div>
+                </Link>
 
-                {/* Primary Site Navigation */}
-                <div className="hidden lg:flex items-center gap-12">
-                    <ul className="flex items-center gap-10">
-                        {NAV_LINKS.map((link, index) => (
-                            <motion.li
-                                key={index}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.05 }}
-                            >
-                                <Link
-                                    to={link.href.replace('#', '')}
-                                    smooth={true}
-                                    spy={true}
-                                    offset={-100}
-                                    onSetActive={() => setActiveSection(link.href.replace('#', ''))}
-                                    className={`relative text-[10px] font-black uppercase tracking-[0.25em] transition-all cursor-pointer hover:text-white ${
-                                        activeSection === link.href.replace('#', '') ? "text-white" : "text-white/40"
-                                    }`}
-                                >
-                                    {link.name}
-                                    {activeSection === link.href.replace('#', '') && (
-                                        <motion.div
-                                            layoutId="nav-active"
-                                            className="absolute -bottom-2 left-0 w-full h-[2.5px] bg-cyan-400 shadow-[0_0_15px_#3CD7FF]"
-                                        />
-                                    )}
-                                </Link>
-                            </motion.li>
-                        ))}
-                    </ul>
-
-                    <div className="w-[1px] h-6 bg-white/10 mx-2" />
-
-                    <div className="flex items-center gap-6">
-                        <a 
-                            href={BRAND_CONTENT.github} 
-                            target="_blank" 
-                            className="text-white/40 hover:text-white transition-all hover:scale-110 hover:shadow-[0_0_20px_white]"
+                {/* Floating Glass Pill - Desktop */}
+                <div className={`hidden lg:flex items-center gap-2 px-2 py-2 rounded-full border border-white/5 backdrop-blur-xl bg-bg-dark/40 transition-all duration-500 pointer-events-auto ${isScrolled ? "translate-y-0 opacity-100" : "translate-y-0 opacity-100"}`}>
+                    {NAV_LINKS.map((link) => (
+                        <Link
+                            key={link.href}
+                            to={link.href.replace("#", "")}
+                            smooth={true}
+                            offset={-80}
+                            activeClass="!bg-white/10 !text-white"
+                            spy={true}
+                            className="px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-text-muted hover:text-white transition-all cursor-pointer"
                         >
-                            <FaGithub size={20} />
-                        </a>
-                        <a 
-                            href={BRAND_CONTENT.linkedin} 
-                            target="_blank" 
-                            className="text-white/40 hover:text-cyan-400 transition-all hover:scale-110 hover:shadow-[0_0_20px_#3CD7FF]"
-                        >
-                            <FaLinkedin size={20} />
-                        </a>
-                    </div>
+                            {link.name}
+                        </Link>
+                    ))}
                 </div>
 
-                {/* Mobile Interface Controls */}
-                <motion.button 
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="lg:hidden p-3 bg-white/5 border border-white/10 rounded-xl text-white backdrop-blur-md relative z-[102]"
+                {/* Contact CTA / Social - Desktop */}
+                <div className="hidden lg:flex items-center gap-4 pointer-events-auto">
+                    <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="p-3 rounded-full text-text-muted hover:text-white transition-all">
+                        <Github size={18} />
+                    </a>
+                    <Link to="contact" smooth={true} className="pill-button px-8 py-2.5 text-[10px]">
+                        Establish Uplink
+                    </Link>
+                </div>
+
+                {/* Mobile Toggle */}
+                <button 
+                    className="lg:hidden text-white p-3 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/10 pointer-events-auto"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {mobileMenuOpen ? <FaXmark size={24} /> : <FaBars size={24} />}
-                </motion.button>
+                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
             </div>
 
-            {/* Immersive Mobile Overlay */}
-            <motion.div 
-                initial={false}
-                animate={mobileMenuOpen ? "open" : "closed"}
-                variants={{
-                    open: { opacity: 1, y: 0, pointerEvents: "all" },
-                    closed: { opacity: 0, y: -20, pointerEvents: "none" }
-                }}
-                className="fixed inset-0 bg-[#0A0F1F]/98 z-[99] lg:hidden flex flex-col items-center justify-center gap-10 backdrop-blur-3xl"
-            >
-                {NAV_LINKS.map((link, i) => (
-                    <Link 
-                        key={i}
-                        to={link.href.replace('#', '')} 
-                        smooth={true} 
-                        duration={1000} 
-                        offset={-80}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-4xl font-black uppercase tracking-tight text-white/40 hover:text-white transition-all"
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="lg:hidden fixed inset-4 top-24 bg-bg-dark/95 backdrop-blur-2xl rounded-[3rem] border border-white/10 z-[99] flex flex-col items-center justify-center gap-8 pointer-events-auto"
                     >
-                        {link.name}
-                    </Link>
-                ))}
-            </motion.div>
-        </nav>
+                        {NAV_LINKS.map((link) => (
+                            <Link
+                                key={link.href}
+                                to={link.href.replace("#", "")}
+                                smooth={true}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="text-2xl font-black uppercase tracking-widest text-text-muted hover:text-neon-cyan transition-colors"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </header>
     );
 };
 
 export default Navbar;
+
