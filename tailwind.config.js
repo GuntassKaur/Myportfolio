@@ -32,6 +32,7 @@ export default {
         'glow-pulse': 'glow-pulse 2s infinite',
         'float': 'float 6s ease-in-out infinite',
         'tilt': 'tilt 10s infinite linear',
+        'shine': 'shine 8s linear infinite',
       },
       keyframes: {
         'glow-pulse': {
@@ -41,6 +42,9 @@ export default {
         'float': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        'shine': {
+          'to': { 'background-position': '200% center' },
         },
       },
       backdropBlur: {
