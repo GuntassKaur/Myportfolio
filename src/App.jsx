@@ -24,7 +24,7 @@ function App() {
     <div className="portfolio-app min-h-screen bg-[#0A0F1F] text-white selection:bg-cyan-500/30 font-inter overflow-x-hidden relative">
       {/* Global Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-magenta-600 origin-left z-[200]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-royal-500 via-neon-cyan to-gold-highlight origin-left z-[200]"
         style={{ scaleX }}
       />
 
@@ -48,10 +48,10 @@ function App() {
       <Footer />
 
       {/* Global Background Visual Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] animate-blob" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-600/10 rounded-full blur-[120px] animate-blob animation-delay-2000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-magenta-600/5 rounded-full blur-[100px] animate-blob animation-delay-4000" />
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-royal-500/5 rounded-full blur-[120px] animate-blob" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-neon-cyan/5 rounded-full blur-[120px] animate-blob animation-delay-2000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-gold-highlight/2 rounded-full blur-[100px] animate-blob animation-delay-4000" />
       </div>
     </div>
   );

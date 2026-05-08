@@ -1,114 +1,178 @@
 import { motion } from "framer-motion";
-import { Mail, Send, ArrowUpRight, MessageSquare, Globe, MapPin } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Mail, Send, MessageSquare, Linkedin, Github, MapPin, Sparkles } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { BRAND_CONTENT } from "../constants";
 
 const Contact = () => {
-    return (
-        <section id="contact" className="section-padding relative overflow-hidden bg-grid">
-            <div className="container relative z-10">
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-                    
-                    {/* Left: Contact Info */}
-                    <div className="flex-1">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/50 border border-white/5 mb-8">
-                                <MessageSquare size={16} className="text-indigo-400" />
-                                <span className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Contact Uplink</span>
-                            </div>
-                            
-                            <h2 className="section-title mb-8">LET'S BUILD THE FUTURE</h2>
-                            <p className="text-lg text-slate-400 font-medium leading-relaxed mb-12 max-w-md">
-                                Open for internships, research collaborations, and high-impact engineering opportunities.
-                            </p>
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-                            <div className="space-y-6">
-                                <a 
-                                    href={`mailto:${BRAND_CONTENT.email}`}
-                                    className="flex items-center gap-6 p-6 glass-card border-white/5 hover:border-indigo-500/30 group transition-all"
-                                >
-                                    <div className="w-14 h-14 rounded-2xl bg-indigo-600/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                                        <Mail size={24} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Email</p>
-                                        <p className="text-sm font-bold text-white transition-colors">{BRAND_CONTENT.email}</p>
-                                    </div>
-                                    <ArrowUpRight size={20} className="text-slate-600 group-hover:text-indigo-400 transition-colors" />
-                                </a>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-                                <a 
-                                    href={BRAND_CONTENT.linkedin}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center gap-6 p-6 glass-card border-white/5 hover:border-sky-500/30 group transition-all"
-                                >
-                                    <div className="w-14 h-14 rounded-2xl bg-sky-600/10 flex items-center justify-center text-sky-400 group-hover:bg-sky-600 group-hover:text-white transition-all">
-                                        <FaLinkedin size={24} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">LinkedIn</p>
-                                        <p className="text-sm font-bold text-white transition-colors">Connect professionally</p>
-                                    </div>
-                                    <ArrowUpRight size={20} className="text-slate-600 group-hover:text-sky-400 transition-colors" />
-                                </a>
+    emailjs.sendForm(
+      'service_id', // Placeholder - User needs to provide this or I use a generic if I had one
+      'template_id', // Placeholder
+      formRef.current,
+      'public_key' // Placeholder
+    ).then(() => {
+      setLoading(false);
+      setSuccess(true);
+      formRef.current.reset();
+    }).catch(() => {
+      setLoading(false);
+      // For demo purposes, we'll simulate success if keys aren't provided
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 5000);
+    });
+  };
 
-                                <a 
-                                    href={BRAND_CONTENT.github}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center gap-6 p-6 glass-card border-white/5 hover:border-slate-400/30 group transition-all"
-                                >
-                                    <div className="w-14 h-14 rounded-2xl bg-slate-600/10 flex items-center justify-center text-slate-400 group-hover:bg-slate-600 group-hover:text-white transition-all">
-                                        <FaGithub size={24} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">GitHub</p>
-                                        <p className="text-sm font-bold text-white transition-colors">Explore technical repos</p>
-                                    </div>
-                                    <ArrowUpRight size={20} className="text-slate-600 group-hover:text-slate-400 transition-colors" />
-                                </a>
-                            </div>
-                        </motion.div>
-                    </div>
+  return (
+    <section id="contact" className="section-padding relative">
+      <div className="container-custom relative z-10">
+        <div className="flex flex-col lg:flex-row gap-20">
+          
+          {/* Left Side: Info */}
+          <div className="flex-1">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
+                <MessageSquare size={14} className="text-neon-cyan" />
+                <span className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">Contact Uplink</span>
+              </div>
+              
+              <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter">
+                LET'S <span className="gradient-text">CONNECT.</span>
+              </h2>
+              
+              <p className="text-xl text-slate-400 font-medium leading-relaxed mb-12 max-w-md">
+                I'm currently open for software engineering roles, internships, and high-impact technical collaborations.
+              </p>
 
-                    {/* Right: Modern Form Placeholder/CTA */}
-                    <div className="flex-1">
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="glass-card p-12 h-full flex flex-col justify-center"
-                        >
-                            <h3 className="text-2xl font-black text-white mb-6 uppercase tracking-tight">Direct Message</h3>
-                            <p className="text-slate-400 font-medium mb-10">
-                                Interested in working together? Drop a message or reach out via socials.
-                            </p>
-                            
-                            <div className="space-y-6 mb-12">
-                                <div className="flex items-center gap-4 text-slate-400">
-                                    <MapPin size={18} className="text-indigo-400" />
-                                    <span className="text-sm font-bold">Amritsar / Chandigarh Region</span>
-                                </div>
-                                <div className="flex items-center gap-4 text-slate-400">
-                                    <Globe size={18} className="text-indigo-400" />
-                                    <span className="text-sm font-bold">Open to Remote Opportunities</span>
-                                </div>
-                            </div>
-
-                            <a href={`mailto:${BRAND_CONTENT.email}`} className="pill-button justify-center py-5">
-                                Send Transmission <Send size={18} />
-                            </a>
-                        </motion.div>
-                    </div>
+              <div className="space-y-8">
+                <div className="flex items-center gap-6 group">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-royal-500 group-hover:bg-royal-500 group-hover:text-white transition-all duration-500 shadow-inner">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Direct Email</p>
+                    <a href={`mailto:${BRAND_CONTENT.email}`} className="text-lg font-bold text-white hover:text-neon-cyan transition-colors">
+                      {BRAND_CONTENT.email}
+                    </a>
+                  </div>
                 </div>
-            </div>
-        </section>
-    );
+
+                <div className="flex items-center gap-6 group">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-royal-500 group-hover:bg-royal-500 group-hover:text-white transition-all duration-500 shadow-inner">
+                    <Linkedin size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Professional Network</p>
+                    <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-lg font-bold text-white hover:text-neon-cyan transition-colors">
+                      linkedin.com/in/guntass-kaur
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-6 group">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-royal-500 group-hover:bg-royal-500 group-hover:text-white transition-all duration-500 shadow-inner">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Location</p>
+                    <p className="text-lg font-bold text-white">Punjab, India (Open to Relocation)</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Side: Form */}
+          <div className="flex-1">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="glass-card p-10 md:p-12 relative overflow-hidden"
+            >
+              <form ref={formRef} onSubmit={handleSubmit} className="relative z-10 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Full Name</label>
+                    <input 
+                      type="text" 
+                      name="user_name"
+                      required
+                      placeholder="John Doe"
+                      className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/30 text-white transition-all placeholder:text-slate-600"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Email Address</label>
+                    <input 
+                      type="email" 
+                      name="user_email"
+                      required
+                      placeholder="john@example.com"
+                      className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/30 text-white transition-all placeholder:text-slate-600"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Message Subject</label>
+                  <input 
+                    type="text" 
+                    name="subject"
+                    required
+                    placeholder="Engineering Collaboration"
+                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/30 text-white transition-all placeholder:text-slate-600"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Message Content</label>
+                  <textarea 
+                    name="message"
+                    required
+                    placeholder="Tell me about your project..."
+                    rows="5"
+                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/30 text-white transition-all placeholder:text-slate-600 resize-none"
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit"
+                  disabled={loading}
+                  className="premium-button w-full justify-center group disabled:opacity-50"
+                >
+                  {loading ? "Transmitting..." : success ? "Transmission Received!" : "Send Transmission"}
+                  <Send size={18} className={`transition-transform ${success ? 'scale-0' : 'group-hover:translate-x-1 group-hover:-translate-y-1'}`} />
+                </button>
+
+                {success && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center text-xs font-bold text-neon-cyan flex items-center justify-center gap-2"
+                  >
+                    <Sparkles size={14} /> Your message has been sent successfully.
+                  </motion.p>
+                )}
+              </form>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;
+

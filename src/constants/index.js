@@ -2,8 +2,8 @@ export const BRAND_CONTENT = {
   firstName: "Guntass",
   lastName: "Kaur",
   fullName: "Guntass Kaur",
-  roles: ["Full Stack Developer", "AI & NLP Systems Engineer"],
-  tagline: "Building AI-driven scalable systems",
+  roles: ["Aspiring Software Engineer", "AI & Intelligent Systems Developer"],
+  tagline: "I design intelligent systems and scalable digital experiences that solve real-world problems.",
   subtext: "AI | Full Stack | Intelligent Systems",
   email: "kaurguntass2508@gmail.com",
   github: "https://github.com/GuntassKaur",
@@ -21,28 +21,121 @@ export const NAV_LINKS = [
 ];
 
 export const HERO_CONTENT = {
-  headline: "Building AI-driven scalable systems",
-  subheading: "AI | Full Stack | Intelligent Systems",
+  headline: "Hi, I’m Guntass Kaur",
+  subheading: "Aspiring Software Engineer | AI & Intelligent Systems Developer",
+  powerStatement: "I design intelligent systems and scalable digital experiences that solve real-world problems.",
 };
 
 export const ABOUT_CONTENT = {
-  text: "I am a B.Tech Computer Science student (CGPA: 9.15) focused on building AI-driven scalable systems. I work at the intersection of Full Stack Development, AI & NLP Systems, and System Design & Distributed Systems. I believe in building real-world systems, not just projects.",
+  text: "I focus on building systems that combine intelligence, usability, and real-world impact.",
   academicHighlights: [
-    { label: "B.Tech CSE", value: "9.15 CGPA", period: "2023–2027" },
-    { label: "Class XII", value: "80%", institution: "Modern High School" },
-    { label: "Class X", value: "95%", institution: "Modern High School" }
+    { label: "B.Tech CSE (2023–2027)", value: "9.15 CGPA", icon: "GraduationCap" },
+    { label: "Class XII (CBSE)", value: "80%", icon: "BookOpen" },
+    { label: "Class X (CBSE)", value: "95%", icon: "Award" },
+    { label: "Runner-Up Project", value: "Udaan Fest", icon: "Trophy" }
   ]
 };
 
+export const PROJECTS = [
+  {
+    id: "shifra",
+    title: "SHIFRA",
+    isFeatured: true,
+    isRunnerUp: true,
+    badge: "🏆 Runner-Up Project",
+    tech: ["Arduino", "Python", "Sensors", "Speech Recognition", "Embedded Systems"],
+    problem: "Need for smart navigation and real-time interaction in compact robotic systems.",
+    solution: "An AI-powered intelligent assistant robot built using sensors, voice interaction, and embedded systems.",
+    impact: "Provides smart navigation and real-time assistance with a hardware + AI aesthetic.",
+    description: "An AI-powered intelligent assistant robot built using sensors, voice interaction, and embedded systems to provide smart navigation and real-time assistance.",
+    links: { demo: "#", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2670",
+  },
+  {
+    id: "confera-ai",
+    title: "ConferaAI",
+    tech: ["React.js", "Node.js", "WebRTC", "OpenAI API", "LiveKit"],
+    problem: "Fragmented meeting experiences without intelligent context or easy recall.",
+    solution: "An AI-powered video conferencing platform with smart transcription and AI-generated summaries.",
+    impact: "Transforms conversations into searchable and actionable intelligence.",
+    description: "An AI-powered video conferencing platform with smart transcription, AI-generated summaries, and intelligent meeting recall.",
+    links: { demo: "https://confera-ai-video-conferencing-gk.vercel.app", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
+  },
+  {
+    id: "aurix",
+    title: "AURIX",
+    tech: ["Go", "Next.js", "MQTT", "Distributed Systems", "Firebase"],
+    problem: "Traditional emergency communication systems often fail in high-pressure or disconnected environments.",
+    solution: "Built a scalable intelligent infrastructure platform with modern frontend systems and tactical communication workflows.",
+    impact: "Improves accessibility, coordination efficiency, and intelligent emergency response management.",
+    description: "AURIX is an intelligent tactical emergency response and communication platform designed for resilient, real-time coordination during critical situations using smart infrastructure and scalable system architecture.",
+    links: { demo: "https://aurix-tactical-v1.web.app/", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1576091160550-2173bdd9962a?auto=format&fit=crop&q=80&w=2670",
+  },
+  {
+    id: "swift-miles",
+    title: "Swift Miles",
+    tech: ["Java", "Swing", "JDBC", "MySQL"],
+    problem: "Inefficient manual management of cab bookings and fleet operations.",
+    solution: "A desktop-based cab booking management system focused on optimized operations and database management.",
+    impact: "Streamlines booking workflows and fleet management for enterprise environments.",
+    description: "A desktop-based cab booking management system focused on optimized operations, database management, and efficient booking workflows.",
+    links: { demo: "#", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=2670",
+  },
+  {
+    id: "verimind",
+    title: "VeriMind",
+    tech: ["Python", "NLP", "Flask", "React"],
+    problem: "Proliferation of AI-generated misinformation and academic hallucinations.",
+    solution: "An AI-powered verification system that analyzes academic content using NLP and confidence scoring.",
+    impact: "Creates trust and transparency in AI-assisted content detection.",
+    description: "An AI-powered verification system that analyzes academic content using NLP and confidence scoring to detect AI-generated misinformation and hallucinations.",
+    links: { demo: "https://verimind-intelligent-suite-np75.vercel.app", github: "https://github.com/GuntassKaur" },
+    image: "https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&q=80&w=2670",
+  },
+];
+
+export const EDUCATION = [
+  {
+    degree: "Bachelor of Technology in CSE",
+    institution: "Global Group of Institutes",
+    period: "2023 – 2027",
+    highlights: ["9.15 CGPA", "Focused on AI and Distributed Systems"],
+  },
+  {
+    degree: "Class XII (CBSE)",
+    institution: "Modern High School",
+    period: "2022",
+    highlights: ["80.0%", "Physics, Chemistry, Mathematics"],
+  },
+  {
+    degree: "Class X (CBSE)",
+    institution: "Modern High School",
+    period: "2020",
+    highlights: ["95.0%", "Academic Distinction"],
+  },
+];
+
 export const SKILLS = [
+  {
+    category: "Languages",
+    items: [
+      { name: "C/C++", icon: "Code" },
+      { name: "Java", icon: "Code" },
+      { name: "Python", icon: "Code" },
+      { name: "JavaScript", icon: "Code" },
+      { name: "Go", icon: "Code" }
+    ],
+  },
   {
     category: "Frontend",
     items: [
-      { name: "HTML", icon: "Layout" },
-      { name: "CSS", icon: "Palette" },
-      { name: "JavaScript", icon: "Code2" },
       { name: "React.js", icon: "Zap" },
-      { name: "Next.js", icon: "Rocket" }
+      { name: "Next.js", icon: "Rocket" },
+      { name: "Tailwind CSS", icon: "Palette" },
+      { name: "Framer Motion", icon: "Activity" }
     ],
   },
   {
@@ -50,118 +143,35 @@ export const SKILLS = [
     items: [
       { name: "Node.js", icon: "Server" },
       { name: "Express.js", icon: "Settings" },
-      { name: "FastAPI", icon: "Zap" }
+      { name: "FastAPI", icon: "Zap" },
+      { name: "Firebase", icon: "Flame" }
     ],
   },
   {
     category: "AI/ML",
     items: [
       { name: "NLP", icon: "Brain" },
-      { name: "AI Agents (LangGraph)", icon: "Bot" },
-      { name: "Semantic Analysis", icon: "Search" }
+      { name: "LangChain", icon: "Link" },
+      { name: "Computer Vision", icon: "Eye" },
+      { name: "Prompt Engineering", icon: "MessageSquare" }
     ],
   },
   {
-    category: "Databases",
+    category: "IoT",
     items: [
-      { name: "PostgreSQL", icon: "Database" },
-      { name: "MongoDB", icon: "Database" },
-      { name: "MySQL", icon: "Database" }
+      { name: "Arduino", icon: "Cpu" },
+      { name: "Sensors", icon: "Activity" },
+      { name: "Embedded C", icon: "Terminal" }
     ],
   },
   {
-    category: "Cloud & Tools",
+    category: "Tools",
     items: [
-      { name: "AWS", icon: "Cloud" },
-      { name: "GCP", icon: "Cloud" },
-      { name: "Oracle Cloud", icon: "Cloud" },
+      { name: "Git/GitHub", icon: "GitBranch" },
       { name: "Docker", icon: "Box" },
-      { name: "GitHub CI/CD", icon: "GitBranch" },
-      { name: "Playwright", icon: "TestTube" }
+      { name: "VS Code", icon: "Layout" },
+      { name: "Postman", icon: "Send" }
     ],
-  },
-];
-
-export const PROJECTS = [
-  {
-    id: "jeevanet",
-    title: "JEEVANET — Autonomous 5G Emergency Intelligence Network",
-    isFeatured: true,
-    tech: ["Go", "MQTT", "AI", "Edge Computing", "Distributed Systems"],
-    bullets: [
-      "AI-based emergency response system using real-time predictive analytics",
-      "Dynamically generates 'Green Corridors' for ambulances",
-      "Event-driven architecture using Go + MQTT",
-      "Explores V2X communication and edge intelligence",
-      "Designed as scalable smart city infrastructure"
-    ],
-    links: { demo: "#", github: "https://github.com/GuntassKaur/JEEVANET-Autonomous-5G-Powered-Emergency-Intelligence-Network" },
-    image: "https://images.unsplash.com/photo-1576091160550-2173bdd9962a?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    id: "ai-automation",
-    title: "AI Business Automation System (Ongoing)",
-    tech: ["FastAPI", "PostgreSQL", "LangGraph", "AI Agents"],
-    bullets: [
-      "AI agent-based automation system",
-      "Automates workflows and business decisions",
-      "Scalable backend architecture using APIs",
-      "Focused on real-world automation"
-    ],
-    links: { demo: "#", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2664",
-  },
-  {
-    id: "confera-ai",
-    title: "CONFERA AI",
-    tech: ["React.js", "Node.js", "WebRTC", "OpenAI API"],
-    bullets: [
-      "AI-powered video conferencing platform",
-      "Smart Recall (summaries + key points)",
-      "Live transcription and speaker tracking",
-      "Real-time communication system"
-    ],
-    links: { demo: "https://confera-ai-video-conferencing.vercel.app", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    id: "verimind",
-    title: "VERIMIND (Intelligent Suite)",
-    tech: ["Python", "Flask", "NLP"],
-    bullets: [
-      "Detects AI-generated content",
-      "Uses semantic analysis and scoring",
-      "Focused on hallucination detection",
-      "Improves AI reliability"
-    ],
-    links: { demo: "https://verimind-intelligent-suite-np75.vercel.app", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    id: "swift-miles",
-    title: "SWIFT MILES — Cab Booking System",
-    tech: ["Java", "Swing", "JDBC", "MySQL"],
-    bullets: [
-      "Cab booking system with admin/user modules",
-      "OTP authentication and validation",
-      "Optimized database queries"
-    ],
-    links: { demo: "#", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    id: "shifra",
-    title: "SHIFRA ROBOT",
-    isRunnerUp: true,
-    tech: ["Arduino", "Python", "Sensors"],
-    bullets: [
-      "Voice-controlled AI robot",
-      "Obstacle detection using sensors",
-      "Real-time interaction system",
-      "Runner-Up project in technical competition"
-    ],
-    links: { demo: "#", github: "https://github.com/GuntassKaur" },
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2670",
   },
 ];
 
@@ -197,27 +207,6 @@ export const ACHIEVEMENTS = [
   },
 ];
 
-export const EDUCATION = [
-  {
-    degree: "Bachelor of Technology in CSE",
-    institution: "Global Group of Institutes",
-    period: "2023 – 2027",
-    highlights: ["9.15 CGPA", "Focused on AI and Distributed Systems"],
-  },
-  {
-    degree: "Class XII (CBSE)",
-    institution: "Modern High School",
-    period: "2022",
-    highlights: ["80.0%", "Physics, Chemistry, Mathematics"],
-  },
-  {
-    degree: "Class X (CBSE)",
-    institution: "Modern High School",
-    period: "2020",
-    highlights: ["95.0%", "Academic Distinction"],
-  },
-];
-
 export const CERTIFICATIONS = [
   {
     name: "GenAI Powered Data Analytics Job Simulation",
@@ -226,6 +215,8 @@ export const CERTIFICATIONS = [
     type: "AI",
     desc: "Gained hands-on experience in Exploratory Data Analysis, Generative AI applications, and data-driven problem solving.",
     link: "#",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
+    skills: ["Data Analytics", "GenAI"]
   },
   {
     name: "Java & ChatGPT for Web Development",
@@ -233,22 +224,29 @@ export const CERTIFICATIONS = [
     year: "Jan 2026",
     type: "Code",
     desc: "Developed skills in Java programming and integrating AI tools like ChatGPT into web workflows.",
-    link: "#"
+    link: "#",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
+    skills: ["Java", "AI Integration"]
   },
   {
     name: "Gemini Certified Student",
     issuer: "Google",
-    year: "Oct 2025 – Oct 2028",
+    year: "2025",
     type: "AI",
     desc: "Acquired knowledge in Generative AI, Prompt Engineering, and modern AI tools.",
-    link: "#"
+    link: "#",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
+    skills: ["Generative AI", "Prompt Engineering"]
   },
   {
-    name: "Oracle Cloud Infrastructure 2025 AI Foundations Associate",
+    name: "Oracle Cloud AI Foundations",
     issuer: "Oracle",
-    year: "Sep 2025 – Sep 2027",
-    type: "Cloud",
+    year: "2025",
+    type: "AI",
     desc: "Built foundational understanding of AI concepts and cloud infrastructure on OCI.",
-    link: "#"
+    link: "#",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2670",
+    skills: ["AI Foundations", "Cloud"]
   },
 ];
+
