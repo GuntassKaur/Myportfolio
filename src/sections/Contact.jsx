@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Mail, Send, MessageSquare, Linkedin, Github, MapPin, Sparkles } from "lucide-react";
+import { Mail, Send, MessageSquare, MapPin, Sparkles } from "lucide-react";
+import { FaLinkedinIn } from "react-icons/fa6";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { BRAND_CONTENT } from "../constants";
@@ -70,7 +71,7 @@ const Contact = () => {
 
                 <div className="flex items-center gap-6 group">
                   <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-royal-500 group-hover:bg-royal-500 group-hover:text-white transition-all duration-500 shadow-inner">
-                    <Linkedin size={20} />
+                    <FaLinkedinIn size={20} />
                   </div>
                   <div>
                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Professional Network</p>

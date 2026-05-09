@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Linkedin, Send } from "lucide-react";
+import { Menu, X, Send } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { BRAND_CONTENT, NAV_LINKS } from "../constants";
 
 const Navbar = () => {
@@ -53,10 +54,10 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex items-center gap-4 border-r border-white/10 pr-6 mr-6">
             <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all">
-              <Github size={18} />
+              <FaGithub size={18} />
             </a>
             <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all">
-              <Linkedin size={18} />
+              <FaLinkedinIn size={18} />
             </a>
           </div>
           <Link 
@@ -101,8 +102,8 @@ const Navbar = () => {
               ))}
               <div className="w-full h-px bg-white/5 my-4" />
               <div className="flex gap-8">
-                <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400"><Github size={24} /></a>
-                <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400"><Linkedin size={24} /></a>
+                <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400"><FaGithub size={24} /></a>
+                <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400"><FaLinkedinIn size={24} /></a>
               </div>
             </div>
           </motion.div>

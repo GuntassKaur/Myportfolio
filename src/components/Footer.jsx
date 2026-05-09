@@ -1,5 +1,6 @@
 import { BRAND_CONTENT } from "../constants";
-import { Mail, Github, Linkedin, Cpu } from "lucide-react";
+import { Mail, Cpu } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -40,7 +41,7 @@ const Footer = () => {
               rel="noreferrer" 
               className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
-              <Github size={18} />
+              <FaGithub size={18} />
             </a>
             <a 
               href={BRAND_CONTENT.linkedin} 
@@ -48,7 +49,7 @@ const Footer = () => {
               rel="noreferrer" 
               className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
-              <Linkedin size={18} />
+              <FaLinkedinIn size={18} />
             </a>
             <a 
               href={`mailto:${BRAND_CONTENT.email}`} 
