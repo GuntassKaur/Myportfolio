@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Code, Sparkles } from "lucide-react";
+import { ArrowRight, Code, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
 import { useCallback } from "react";
@@ -101,22 +101,18 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-6"
             >
               <a href="#projects" className="premium-button group">
                 View Projects
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href={BRAND_CONTENT.resumeUrl} className="premium-button-outline">
-                <Download size={18} />
-                Resume
-              </a>
-              <div className="flex items-center gap-3 ml-2 lg:ml-4 border-l border-white/10 pl-6">
-                <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-110">
-                  <FaLinkedinIn size={20} />
+              <div className="flex items-center gap-6 border-l border-white/10 pl-6 h-10">
+                <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-125">
+                  <FaLinkedinIn size={22} />
                 </a>
-                <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-110">
-                  <FaGithub size={20} />
+                <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-125">
+                  <FaGithub size={22} />
                 </a>
               </div>
             </motion.div>

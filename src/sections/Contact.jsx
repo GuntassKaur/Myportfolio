@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Mail, Send, MessageSquare, MapPin, Sparkles } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 import { BRAND_CONTENT } from "../constants";
 
 const Contact = () => {
@@ -14,21 +13,27 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.sendForm(
-      'service_id', // Placeholder - User needs to provide this or I use a generic if I had one
-      'template_id', // Placeholder
-      formRef.current,
-      'public_key' // Placeholder
-    ).then(() => {
+    const formData = new FormData(formRef.current);
+    const name = formData.get('user_name');
+    const email = formData.get('user_email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+
+    // Simulate a secure handshake/loading for UX
+    setTimeout(() => {
       setLoading(false);
       setSuccess(true);
-      formRef.current.reset();
-    }).catch(() => {
-      setLoading(false);
-      // For demo purposes, we'll simulate success if keys aren't provided
-      setSuccess(true);
-      setTimeout(() => setSuccess(false), 5000);
-    });
+      
+      const mailtoUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${BRAND_CONTENT.email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+      
+      // Open Gmail in a new tab securely
+      window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
+
+      setTimeout(() => {
+        setSuccess(false);
+        formRef.current.reset();
+      }, 3000);
+    }, 1500);
   };
 
   return (

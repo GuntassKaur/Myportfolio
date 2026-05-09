@@ -82,29 +82,44 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden fixed inset-x-4 top-24 bg-bg-dark/95 backdrop-blur-2xl rounded-[2rem] border border-white/10 p-10 z-[99] shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="lg:hidden fixed inset-0 z-[90] bg-bg-dark/98 backdrop-blur-2xl"
           >
-            <div className="flex flex-col items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <Link
+            <div className="flex flex-col items-center justify-center h-full gap-10 px-6">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
                   key={link.href}
-                  to={link.href.replace("#", "")}
-                  smooth={true}
-                  offset={-80}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xl font-black uppercase tracking-[0.3em] text-slate-400 hover:text-neon-cyan transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    to={link.href.replace("#", "")}
+                    smooth={true}
+                    offset={-80}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-3xl font-black uppercase tracking-[0.4em] text-slate-400 hover:text-royal-500 transition-all text-center block"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <div className="w-full h-px bg-white/5 my-4" />
-              <div className="flex gap-8">
-                <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400"><FaGithub size={24} /></a>
-                <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400"><FaLinkedinIn size={24} /></a>
-              </div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="flex items-center gap-10 mt-10 pt-10 border-t border-white/10 w-full justify-center"
+              >
+                <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all scale-125">
+                  <FaGithub size={28} />
+                </a>
+                <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all scale-125">
+                  <FaLinkedinIn size={28} />
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}
