@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight, ShieldCheck, Zap, Layers, Cpu, Code } from "lucide-react";
+import { ExternalLink, ArrowRight, ShieldCheck, Zap, Layers, Cpu, Code } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 import { PROJECTS } from "../constants";
 
 const ProjectCard = ({ project, index }) => {
@@ -85,7 +86,7 @@ const ProjectCard = ({ project, index }) => {
               rel="noreferrer"
               className="premium-button-outline !py-2.5 !px-6 !text-[11px] group/btn"
             >
-              GitHub Repo <Github size={14} />
+              GitHub Repo <FaGithub size={14} />
             </a>
           </div>
         </div>
