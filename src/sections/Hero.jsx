@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Linkedin, Github, Code, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Code, Sparkles } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
 import { useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
@@ -112,10 +113,10 @@ const Hero = () => {
               </a>
               <div className="flex items-center gap-3 ml-2 lg:ml-4 border-l border-white/10 pl-6">
                 <a href={BRAND_CONTENT.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-110">
-                  <Linkedin size={20} />
+                  <FaLinkedinIn size={20} />
                 </a>
                 <a href={BRAND_CONTENT.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-all hover:scale-110">
-                  <Github size={20} />
+                  <FaGithub size={20} />
                 </a>
               </div>
             </motion.div>
