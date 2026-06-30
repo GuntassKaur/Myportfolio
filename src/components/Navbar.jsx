@@ -32,8 +32,8 @@ const Navbar = () => {
         {/* Desktop Nav - Professional Glass Pill */}
         <nav className={`hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full border transition-all duration-500 ${
           isScrolled 
-            ? "bg-bg-dark/80 backdrop-blur-xl border-white/10 shadow-2xl" 
-            : "bg-transparent border-transparent"
+            ? "bg-[#0A0F1F]/85 backdrop-blur-2xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" 
+            : "bg-white/[0.02] backdrop-blur-md border-white/5"
         }`}>
           {NAV_LINKS.map((link) => (
             <Link
@@ -43,7 +43,7 @@ const Navbar = () => {
               offset={-80}
               spy={true}
               activeClass="!bg-royal-500 !text-white shadow-lg shadow-royal-500/20"
-              className="px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-white transition-all cursor-pointer"
+              className="px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.18em] text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer"
             >
               {link.name}
             </Link>
@@ -63,18 +63,19 @@ const Navbar = () => {
           <Link 
             to="contact" 
             smooth={true} 
-            className="premium-button !py-2.5 !px-6 !text-[10px] shadow-[0_0_20px_rgba(124,58,237,0.2)]"
+            className="premium-button !py-2.5 !px-6 !text-[10px] shadow-[0_0_20px_rgba(124,58,237,0.2)] cursor-pointer"
           >
-            Transmission <Send size={14} className="ml-2" />
+            Let's Talk <Send size={13} className="ml-1" />
           </Link>
         </div>
 
         {/* Mobile Toggle */}
         <button 
-          className="lg:hidden w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white"
+          className="lg:hidden w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-royal-500/50 transition-all duration-200 active:scale-90"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
